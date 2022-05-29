@@ -1,0 +1,48 @@
+body {
+    color: #333333;
+    font-family: arial;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+img {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+}
+
+.help {
+    color:green
+}
+
+footer {
+    color: #888888;
+    border-top: 1px solid black;
+    margin-top: 16px;
+    padding: 16px 0 ;
+}
+
+.cabe {
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+
+h1 {
+    font-size: 65px;
+    margin-bottom: 16px;
+}
+
+.cabe a {
+    color: #888888;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+.main-content{
+    flex-grow: 1;
+}
