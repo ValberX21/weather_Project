@@ -6,6 +6,7 @@ const getCodeApi = require('./utils/geoCode')
 const e = require('express')
 const { callbackify } = require('util')
 
+
 //Define paths for express config
 const publicIndex = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
