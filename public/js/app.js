@@ -9,6 +9,8 @@ weatherForm.addEventListener('submit', (e)  => {
     e.preventDefault()
 
     const location = search.value
+    messageData.textContent = ''
+    messageErro.textContent = ''
 
     messageData.textContent = ' Loading...'
 
@@ -18,7 +20,11 @@ weatherForm.addEventListener('submit', (e)  => {
                    messageErro.textContent = data.error
                    messageData.textContent = ''
                }else{
-                messageData.textContent = 'The weather in ' + data.address + ' is ' + data.forecast.main + ' ' + data.forecast.descri
+                messageData.textContent = 'The weather in ' + data.address 
+                                                   + ' is ' + data.forecast.main 
+                                                   + ' with ' + data.forecast.descri 
+                                                   + ' and ' +  data.forecast.temp
+                                                   + 'C˚'
                 messageErro.textContent = ''
                }
             })

@@ -19,7 +19,10 @@ const geoCode = (address, callback) => {
     })
 }
 const forecast = (log,lat, callback) => {
-    const urlCast = 'https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&'+'lon='+log+'&appid=a90b216b02e924aa34ffe8e51a0501f4'
+    // console.log('Long-'+ log)
+    // console.log('Lat-' + lat)
+
+    const urlCast = 'https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&'+'lon='+log+'&appid=a90b216b02e924aa34ffe8e51a0501f4&units=metric'
 
     request({url:urlCast,json:true},(error,response) => {
         if(error){
@@ -27,11 +30,13 @@ const forecast = (log,lat, callback) => {
         }else if(response.body.length === 0){
             callback('Coordinate is wrong',undefined)
         }else{
+            console.log(response.body.weather[0].description)
             callback(undefined,{
                main:response.body.weather[0].main,
-               descri:response.body.weather[0].description
-
+               descri:response.body.weather[0].description,
+               temp:response.body.main.temp
             })
+            
         }
     })
 }
