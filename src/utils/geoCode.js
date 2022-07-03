@@ -1,7 +1,7 @@
 const request  = require('request')
 
 const geoCode = (address, callback) => {
-    const urlGeo = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + address + '.json?access_token=pk.eyJ1IjoidmFsYmVyeHoyMSIsImEiOiJjbDNpenJzd24wMXYyM2JwcXJxN2JvdWpwIn0.BTsHyAe3QydyF9tjFskCVA'
+    const urlGeo = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + address + '.json?access_token=' // <<- ADD YOUR ACCESS TOKEN HERE
     
     request({url: urlGeo, json: true}, (error, response) =>{
         if(error){
@@ -9,7 +9,6 @@ const geoCode = (address, callback) => {
         }else if(response.body.features.length === 0){
             callback('Unable to find location. Try another search',undefined)
         }else{
-            
             callback(undefined,{
                 lati: response.body.features[0].center[0],
                 longi: response.body.features[0].center[1],
@@ -22,7 +21,7 @@ const forecast = (log,lat, callback) => {
     // console.log('Long-'+ log)
     // console.log('Lat-' + lat)
 
-    const urlCast = 'https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&'+'lon='+log+'&appid=a90b216b02e924aa34ffe8e51a0501f4&units=metric'
+    const urlCast = 'https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&'+'lon='+log+'&appid=' // <<- ADD YOUR APP ID HERE
 
     request({url:urlCast,json:true},(error,response) => {
         if(error){
